@@ -1,0 +1,117 @@
+SetEnv DEFAULT_PHP_VERSION 5
+
+#Web server memory limit
+#RLimitMem 768000000
+
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /avtest/
+
+#sitemap
+rewriterule ^sitemap.xml?$ sitemap.php [L]
+rewriterule ^site-map/?$ sitemap.php [L]
+
+#admin
+rewriterule ^admin/?$ /dotpeak-cms/index.php [L]
+
+#contact-us
+rewriterule ^contact-us/?$ contact.php?url1=contact [L]
+
+#blog
+rewriterule ^blog/?$ /blog/index.php [L]
+rewriterule ^blog/wp-admin/$ blog/wp-admin/index.php [L]
+
+ 
+#aboutus
+rewriterule ^aboutus/?$ aboutus.php?url1=aboutus [L]
+
+#ourproducts
+rewriterule ^ourproducts/?$ ourproducts.php?url1=ourproducts [L]
+
+
+#securities
+rewriterule ^securities/?$ security.php?url1=securities [L]
+
+
+#security
+rewriterule ^security/?$ security.php?url1=security [L]
+
+
+#csr
+rewriterule ^csr/?$ csr.php?url1=csr [L]
+
+
+#support
+rewriterule ^support/?$ support.php?url1=support [L]
+
+#smsapi
+rewriterule ^smsapi/?$ sms_api.php?url1=smsapi [L]
+
+#smsnetwork
+rewriterule ^smsnetwork/?$ sms_network.php?url1=smsnetwork [L]
+
+#whitelabel
+rewriterule ^whitelabel/?$ white_label.php?url1=whitelabel [L]
+
+#apps
+rewriterule ^apps/?$ app_n_crm.php?url1=apps [L]
+
+#countries
+rewriterule ^countries/(.*)?$ countries_network.php?url1=countries&char=$1 [L]
+rewriterule ^countries/?$ countries_network.php?url1=countries [L]
+
+
+
+#help
+rewriterule ^help/?$ help.php?url1=help [L]
+
+
+#home
+rewriterule ^/?$ index.php?url1=home [L]
+
+#news
+rewriterule ^news/?([a-zA-Z-0-9]*)$ news.php?url1=news&url2=$1 [L]
+
+#events
+rewriterule ^events/?([a-zA-Z-0-9]*)$ event.php?url1=events&url2=$1 [L]
+
+#member
+rewriterule ^signup/?$ signup.php?url1=signup [L]
+rewriterule ^log-in/?$ signin.php?url1=log-in [L]
+rewriterule ^signin/signout/?$ signin.php?url1=login&cmd=logout [L]
+rewriterule ^signin/checkout/?$ signin.php?url1=login&cmd=logout [L]
+rewriterule ^forgot_password/?$ forgot_password.php [L]
+
+rewriterule ^account/?$ account.php [L]
+rewriterule ^my-account/sell-textures/?$ sell_textures.php [L]
+rewriterule ^my-account/my-textures/?$ my_textures.php [L]
+rewriterule ^my-account/update-texture/?$ update_textures.php [L]
+rewriterule ^my-account/light-box/?$ lightbox.php [L]
+rewriterule ^my-account/stats/?$ statistics.php [L]
+rewriterule ^my-account/orders/?$ orders.php [L]
+rewriterule ^order_details/([0-9]+)/?$ order_details.php?url1=$1 [L]
+
+#form
+rewriterule ^([a-zA-Z-0-9]+)/form/?$ form.php [L]
+rewriterule ^form/?$ form.php [L]
+
+
+#contents
+rewriterule ^([a-zA-Z-0-9]+)/([a-zA-Z-0-9]+)/?$ page.php?url1=$1&url2=$2 [L]
+rewriterule ^([a-zA-Z-0-9]+)/?$ page.php?url1=$1 [L]
+
+
+#404
+rewriterule ^error_404/?$ error_404.php [L]
+rewriterule ^error_page/?$ error_page.php [L]
+
+#Custome Error
+
+ErrorDocument 404 /error_404.php
+
+
+</IfModule>
+
+#DirectoryIndex page.php?url1=home [L]
+
